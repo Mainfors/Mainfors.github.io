@@ -1,14 +1,15 @@
 body{
     color:black;
     background-color: indigo;
-    .logo{
-        width: 100px;
-    }
-    .logo:hover{
-        width: 200px;
-    }
+    
     background-image:url(image\ copy\ 5.png);
     background-size: cover;
+}
+.logo{
+    width: 100px;
+}
+.logo:hover{
+    width: 200px;
 }
 .header{ 
     font-family: 'Times New Roman', Times, serif;
