@@ -1,0 +1,56 @@
+body{
+    color:rgb(177, 71, 71);
+    background-color: indigo;
+    
+    background-image:url(image\ copy\ 5.png);
+    background-size: cover;
+}
+.logo{
+    width: 100px;
+}
+.logo:hover{
+    width: 200px;
+}
+.header{ 
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+    color:brown;
+    text-shadow: 5px 10px 15px black;
+}
+.header:hover{
+    color: forestgreen;
+}
+.swag{
+    font-size: 20px;
+}
+
+.desk{
+    border: 1px solid  black;
+    border-radius: 40px;
+    background-color: burlywood;
+    box-shadow: 5px 15px 5px black;
+    width: 350px;    
+}
+.mobile{
+    border: 1px solid  black;
+    border-radius: 40px;
+    background-color: rgb(70, 51, 104);
+    box-shadow: 5px 15px 5px black;
+    width: 350px;    
+}
+.server{
+    border: 1px solid  black;
+    border-radius: 40px;
+    background-color: rgb(15, 65, 66);
+    box-shadow: 5px 15px 5px black;
+    width: 350px;    
+}
+.general{
+    width: 100%;
+    background-image: linear-gradient(#2E9Aff, #f498ad);
+}
+.btn_os{
+    width: 35px;
+    text-decoration: none;
+    background-color: rgb(61, 202, 148);
+}
