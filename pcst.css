@@ -1,8 +1,14 @@
 body{
-    background-color: rgb(31, 25, 80);
+    background-color: rgb(46, 36, 119);
 }
 .ct{
 text-align: left;  
 font-size: 19px;
 color: rgb(228, 219, 219);  
+background-color: violet;
+width: 1800px;
+}
+.log{
+float: right;
+width: 300px;
 }
