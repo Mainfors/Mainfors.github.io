@@ -11,4 +11,14 @@ width: 1800px;
 .log{
 float: right;
 width: 300px;
+
+}
+.hd{
+    text-align: center;
+    color:white
+}
+.dn{
+    margin-top: 79px;
+    width: 300px;
+    float: right;
 }
