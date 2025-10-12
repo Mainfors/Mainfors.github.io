@@ -1,0 +1,313 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    width: 100vw;
+    height: 8vh;
+    background-color: rgb(154, 150, 150);
+}
+
+.left{
+    display: flex;
+    flex-direction:row;
+    gap: 2% ;
+    padding-top: 10px;
+    padding-left:15px; ;   
+}
+.rnd{
+    width:5vh;
+    height:5vh;
+    border-radius:50%;
+    background-color:white ;
+
+}
+
+.pp{
+    width: 550px;
+    height:5vh;
+    background-color:white ;
+    border-radius: 2px; 
+}
+
+.ppr{
+    background-color: rgb(182, 180, 180);
+    border-radius:50%;
+    width:  4vh;
+    height: 4vh;
+    margin-left: 500px;
+    margin-bottom: 10px;
+}
+
+.rdv{
+    width: 15vh;
+    height: 5vh;
+    border: 2px solid;
+    background-color: rgb(182, 179, 179);
+    color: rgb(182, 180, 180) ;
+}
+
+.right{
+    display: flex;
+    flex-direction:row ;
+    gap: 2%;
+    padding-left: 200px;
+    padding-top: 10px;
+    padding-bottom:10px;
+}
+
+.rdr{
+    width: 6vh;
+    height: 5vh;
+    border-radius: 50%;
+    background-color: rgb(182, 180, 180);
+    color: rgb(182, 180, 180) ;
+}
+
+.copo{
+    display: flex;
+    gap: 4% ;
+    
+    
+}
+
+aside{
+padding-top: 90px;
+padding-left: 10px;
+background-color: rgb(229, 223, 223);
+width: 18vw;
+display: flex;
+flex-direction: column;
+justify-content: left;
+gap: 10px;
+}
+
+.poco{
+    border-radius: 50%;
+    width: 6vh;
+    height: 5vh;
+    background-color: rgb(247, 245, 245);
+    
+}
+
+.x3pro{
+
+width: 22.4vh;
+height: 5vh;
+background-color: rgb(255, 255, 255);
+border-radius: 5px;
+}
+
+.mnogo{
+display: flex;
+flex-direction: column;
+gap: 10px;
+        
+}
+.gry{
+    width: 30vh;
+    background-color: white;    
+    height: 5vh;
+    border-radius: 5px;
+}
+
+.otup{
+    padding-top:5vh;
+    padding-bottom: 5vh;
+}
+
+.main{
+display: flex;
+flex-direction: column;
+padding-top: 80px;
+background-color: rgb(229, 223, 223);
+width: 50vw;
+
+}
+
+.upcon{ 
+    border-radius: 5px;
+    background-color: white;
+    width: 48vw;
+    height: 24vh;
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+.lolo{
+    padding-bottom: 10px;
+}
+.chutd{
+    background-color: rgb(229, 223, 223);
+    height:8vh ;
+    width: 46vw;
+    border-radius: 5px;
+    display: flex;
+}
+
+.strok{
+    display: flex;
+    flex-direction: row;
+    padding-top:  20px; 
+    gap: 5px;
+
+}
+
+.mend{
+    background-color: rgb(229, 223, 223);
+    height: 5vh;
+    width: 11vw;
+    border-radius: 5px;
+}
+
+.kopd{
+    background-color: rgb(229, 223, 223);
+    height: 5vh;
+    width: 5vw;
+    border-radius: 5px;
+}
+
+.cent{
+     border-radius: 5px;
+    background-color: white;
+    width: 48vw;
+    height: 35vh;
+    margin-top: 15px;
+    padding-left: 15px;
+}
+
+.tx{
+    padding-top: 10px;
+}
+
+.fourt{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding-top: 10px;
+}
+.sqr{
+    background-color: rgb(229, 223, 223);
+    width: 11vw;
+    height:28.5vh;
+}
+
+.downs{
+    border-radius: 5px;
+    background-color: white;
+    width: 48vw;
+    height: 28vh;
+    margin-top: 15px;
+    padding-left: 15px;
+}
+
+.mal{
+    float: right;
+     background-color: rgb(229, 223, 223);
+     width: 3vh;
+     height: 3vh;   
+}
+
+.txr{
+    display: flex;
+    flex-direction: row;
+    gap: 34vw;
+    padding-top: 15px;
+}
+
+.rorow{
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.krug{
+     background-color: rgb(229, 223, 223);
+     border-radius: 50%;
+     width: 5vh;
+     height: 5vh;
+     margin-top: 4px;
+}
+
+.dlin{
+    background-color: rgb(229, 223, 223);
+     border-radius: 5px;
+     width: 43vw;
+     height: 5vh;
+}
+
+.boldi{
+    background-color: rgb(229, 223, 223);
+     border-radius: 5px;
+     width: 46.4vw;
+     height: 6vh;
+     margin-top: 10px;
+}
+
+.derd{
+    background-color: rgb(229, 223, 223);
+     border-radius: 5px;
+     margin-top: 10px;  
+      width: 46.4vw;
+     height: 8vh;
+}
+
+.rgth{
+padding-top: 78px;
+background-color: rgb(229, 223, 223);
+width: 32vw;
+display: flex;
+flex-direction: column;
+justify-content: left;
+gap: 10px;
+}
+
+.asdf{
+    border-radius: 5px;
+    background-color: white;
+    width: 30vw;
+    height: 12.3vh;
+}
+
+.kvad{
+    border-radius: 5px;
+    background-color: white;
+    width: 30vw;
+    height: 42vh;
+}
+
+.first{
+    display: flex;
+    flex-direction: column;
+    max-width:15vw;
+    padding-left: 9px;
+    padding-top: 10px;
+    gap: 10px;
+}
+
+.derty{
+    background-color: rgb(229, 223, 223);
+    width: 14vw;
+    height: 16vh;
+}
+
+.second{
+    max-width: 15vw;
+    float: right;
+}
+
+.rt{
+    padding-top: 6px;
+    padding-left: 7px;
+}
