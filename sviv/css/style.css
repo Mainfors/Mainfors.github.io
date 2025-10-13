@@ -129,7 +129,7 @@ gap: 10px;
 .main{
 display: flex;
 flex-direction: column;
-padding-top: 80px;
+padding-top: 90px;
 background-color: rgb(229, 223, 223);
 width: 50vw;
 
@@ -212,7 +212,6 @@ width: 50vw;
 }
 
 .mal{
-    float: right;
      background-color: rgb(229, 223, 223);
      width: 3vh;
      height: 3vh;   
@@ -221,7 +220,7 @@ width: 50vw;
 .txr{
     display: flex;
     flex-direction: row;
-    gap: 34vw;
+    gap: 36vw;
     padding-top: 15px;
 }
 
@@ -243,7 +242,7 @@ width: 50vw;
 .dlin{
     background-color: rgb(229, 223, 223);
      border-radius: 5px;
-     width: 43vw;
+     width: 43.2vw;
      height: 5vh;
 }
 
@@ -264,7 +263,7 @@ width: 50vw;
 }
 
 .rgth{
-padding-top: 78px;
+padding-top: 90px;
 background-color: rgb(229, 223, 223);
 width: 32vw;
 display: flex;
@@ -303,11 +302,50 @@ gap: 10px;
 }
 
 .second{
-    max-width: 15vw;
-    float: right;
+    display: flex;
+    flex-direction: column;
+    max-width:15vw;
+    padding-left: 9px;
+    padding-top: 10px;
+    gap: 10px;
 }
 
 .rt{
-    padding-top: 6px;
-    padding-left: 7px;
+    padding-top: 8px;
+    padding-left: 9px;
+}
+
+.qwet{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.niz{
+    background-color: white;
+    border-radius: 5px; 
+    width: 30vw;
+    height: 38vh;
+}
+
+.ryad{
+    display: flex;
+    flex-direction: row;
+    gap: 38vh;
+    padding-top: 10px;
+    padding-left: 9px;
+}
+
+.mid{
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+    padding-left: 20px;
+    padding-top: 8px;
+}
+
+.verx{
+background-color: rgb(229, 223, 223);
+width: 28vw;
+height: 9.6vh;
 }
