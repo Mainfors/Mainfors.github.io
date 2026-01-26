@@ -1,0 +1,78 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    background-color: black;
+}
+
+header{
+    display: flex;
+    height: 20vh;
+    border-bottom: 1px solid #b6ffaf;
+}
+
+.headwrap, .newgames, .footer, .adds, .popular{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin: auto;
+    width: 1440px; 
+}
+
+h1{
+    color: #b6ffaf;
+}
+
+input{
+    background-color: #fff;
+    height: 48px;
+    border-radius: 4px;
+}
+
+button{
+    background-color: #b6ffaf;
+    height: 25px;
+    border-radius: 3px;
+}
+
+.links{
+    display: flex;
+    gap: 50px;
+}
+
+a{
+    color: #fff;
+    cursor: pointer;
+}
+
+main{
+    display: flex;
+    flex-direction:column;
+}
+
+.newgames{
+padding-top: 40px;
+}
+
+.greensq{
+    margin-top: 10px;  ;
+    height: 30vh;
+    background-color: #b6ffaf;
+}
+
+.footer{
+    padding-top: 50px;
+}
+
+p{
+    color: #fff;
+}
+
+.adds{
+    padding-top: 100px;
+}
+
+.popular{
+    padding-top: 50px;
+}
