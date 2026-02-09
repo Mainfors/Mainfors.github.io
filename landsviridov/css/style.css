@@ -1,0 +1,88 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.head{
+  max-width: 999999999999999px;  
+  padding-left: 100px;
+    height: 10vh;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    background-color: rgb(212, 80, 19);
+}
+
+
+.logotype{
+width: 13vh;
+height: 13vh;
+padding: 10px 5px 10px 5px;
+}
+.logo{
+ max-width: 100%;   
+ max-height:100%;
+ object-fit: cover;
+}
+
+.menu, .stop, .poisk, .news{
+    padding-top: 6vh;
+    cursor: pointer;
+    text-align: center;
+}
+
+.s{
+    width: 700px;
+    height: 3vh;
+    border-radius: 5px; 
+}
+
+.butsearch{
+ height: 3vh;
+ border-radius: 3px;
+ background-color: rgba(228, 8, 191, 0.575);
+}
+
+
+.games{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    border: 2px solid;
+    height: 40vw;
+}
+
+.maingame{
+    margin:5px  ;
+    width:900px;
+    border: 2px solid;
+}
+
+.buttonstartgame, .titlename, .vyborg{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.changegame{
+    width: 800px;
+    margin: 5px;
+    border: 2px solid;
+}
+
+.namesgames{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 5px;
+    
+}
+.game{
+    width: 300px;
+    
+}

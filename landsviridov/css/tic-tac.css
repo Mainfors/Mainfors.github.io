@@ -1,0 +1,24 @@
+
+.gamecontent{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.board{
+    display: grid;
+    grid-template-columns: repeat(3,100px);
+    grid-template-rows: repeat(3,100px);
+    gap: 5px;
+    margin-top: 10px;
+
+}
+
+.box{
+    border: 1px solid rgb(62, 207, 93);
+    border-radius: 5px;
+    font-weight: bold ;
+    font-size: 30px;
+    padding-top: 30px;
+}
