@@ -12,7 +12,6 @@
     grid-template-rows: repeat(3,100px);
     gap: 5px;
     margin-top: 10px;
-
 }
 
 .box{
@@ -21,4 +20,14 @@
     font-weight: bold ;
     font-size: 30px;
     padding-top: 30px;
+}
+
+.x{
+background: orange;
+color: purple;
+}
+
+.O{
+    background: orange;
+    color: green;
 }
