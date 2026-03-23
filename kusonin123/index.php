@@ -1,3 +1,6 @@
+<?
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,14 +9,18 @@
     <title>Document</title> 
    <script defer src ="js/script.js"></script>
 </head> 
+
 <body>
+    <? if (isset($_SESSION['message'])): ?>
+        <p><?=$_SESSION['message'] ?> </p>
+        <? endif; ?>
     <form action="php/reg.php" method="POST">
         <label for="login">Логин</label>
         <input type="text" required name="login" id="login" placeholder="Введите логин">
         <label for="password">Пароль</label>
-        <input type="password" class="password" required name="password" id="password" placeholder="Введите пароль">
+        <input type="password" class="password" name="password" id="password" placeholder="Введите пароль">
         <label for="repPassword">Повторите пароль</label>
-        <input type="password" class = "password" required name="repPassword" id="repPassword" placeholder="Введите пароль">
+        <input type="password" class = "password"  name="repPassword" id="repPassword" placeholder="Введите пароль">
         <p id="message"></p>
         <label for="email">Email</label>
         <input type="email" required name="email" id="email" placeholder="Введите email">
