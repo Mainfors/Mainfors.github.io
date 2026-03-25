@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] !=='POST'){
 }
 
 session_start();
-
+//массив данных пользователя
 $inputs =[
 'login',
 'password',
@@ -44,7 +44,7 @@ if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 
 
 require_once '../database/db.php';
-
+// проверка существования лога и мейлов
 $check =  $conn -> prepare("select exists(select 1 from sviridov where login = :login) as login_err, exists(select 1 from sviridov where email = :email) as email_err");
 
 $check-> execute([ ':login' => $login,':email' => $email]);
@@ -65,4 +65,14 @@ if(!empty($errors)){
         exit();
     }
 
-$conn -> query("insert into sviridov (login, password, email, tel, fio) values('".$_POST['login']."','".$_POST['password']."','".$_POST['email']."','".$_POST['tel']."','".$_POST['fio']."')");
+$newUser = $conn -> prepare(
+    "insert into sviridov(login,password,email,tel,fio) values(:login,:password,:email,:tel,:fio)");
+
+$newUser -> execute([':login' => $login,':password' => password_hash($password, PASSWORD_DEFAULT),':email' => $email, ':tel' => $tel, ':fio' => $fio]);
+
+
+     $_SESSION['message']= "Успешная Регистрация";
+        header("Location:../index.php?stat=ok");
+        exit();
+
+?>
