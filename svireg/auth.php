@@ -16,7 +16,7 @@ session_start();
         <? 
         unset($_SESSION['message']);
         endif; ?>
-    <form action="php/reg.php" method="POST">
+    <form action="php/authpage.php" method="POST">
         <label for="login">Логин</label>
         <input type="text" required name="login" id="login" placeholder="Введите логин">
         <label for="password">Пароль</label>

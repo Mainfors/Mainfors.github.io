@@ -53,11 +53,11 @@ $errors = [];
 
 if($check['login_err']){
     $errors[] = 'Логин занят';
-}
+};
 
 if($check['email_err']){
     $errors[] = 'Email занят';
-}
+};
 
 if(!empty($errors)){
     $_SESSION['message'] = implode('. ', $errors).'!';
@@ -72,7 +72,7 @@ $newUser -> execute([':login' => $login,':password' => password_hash($password, 
 
 
      $_SESSION['message']= "Успешная Регистрация";
-        header("Location:../index.php?stat=ok");
+        header("Location:../auth.php?stat=ok");
         exit();
 
 ?>

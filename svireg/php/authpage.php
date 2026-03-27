@@ -39,10 +39,30 @@ if(!$CheckUser || !password_verify($password, $CheckUser['password'])){
      $_SESSION['message']= "Неверный логин или пароль";
        header("Location:../auth.php?stat=error");
             exit();
-}
+};
 
-     $_SESSION['message']= "Успешная Регистрация";
-        header("Location:../index.php?stat=ok");
+session_regenerate_id(true);
+
+$_SESSION['user'] = [
+'userId' => $CheckUser['id'],
+'userLogin' => $CheckUser['login'],
+'userEmail' => $CheckUser['email'],
+'userTel' => $CheckUser['tel'],
+'userFio' => $CheckUser['fio'],
+'userRole' => $CheckUser['role']
+];
+
+if($_SESSION['user']['userRole'] == 'user'){
+    $homepage = '../userPage.php';
+    }
+
+if($_SESSION['user']['userRole'] == 'admin'){
+    $homepage = '../adminPage.php';
+    }
+
+//$_SESSION['user']['userLogin']
+
+        header("Location:". $homepage);
         exit();
 
 ?>
