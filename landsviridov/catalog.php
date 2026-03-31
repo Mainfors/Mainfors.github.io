@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/catalog.css">
+    <script defer src="js/search.js"></script>
+    <script defer src ="js/filter.js"></script>
+</head>
+<body>
+      <header class="head">
+        <div class="logotype"> <img class="logo" src="images/GamerLegion.png" alt=""></div>
+            <div class="menu"> <p>Меню</p> </div>
+           
+                 <div class="stop"> <p>О нас</p> </div>
+                <div class="news"> <p>Новости</p></div>
+                <div class="poisk"><a href="index.html" class="nav_sh">Главная</a></div>
+                    
+    </header>
+    <main class="catalog">
+    <h1>Каталог игр</h1>
+    <div class="search">
+        <input type="text" id ="search" placeholder="Найти">
+        <select name="" id="filtergenre">
+            <option value="all">Все</option>
+            <option value="logic">Лог</option>
+            <option value="acrade">Аркады</option>
+        </select>
+    </div>
+    <div class="games">
+            <a href="Kresno.html" class ="game_item" data-genre ="logic">
+                <img src="images/tic-tac.png" alt="">
+                <h3>Крестики-Нолики</h3>
+                <p>Собери 3 в ряд фигуры</p>
+            </a>
+             <a href="" class ="game_item" data-genre ="memory">
+                <img src="images/city.png" alt="">
+                <h3>Города</h3>
+                <p>Прокачай свои знания географии</p>
+            </a>
+             <a href="" class ="game_item" data-genre="arcade">
+                <img src="images/snake.png" alt="">
+                <h3>Змейка</h3>
+                <p>Собери змейкой все яблоки</p>
+            </a>
+            
+            <a href="" class ="game_item">
+                <img src="images/2048.png" alt="" data-genre="logic">
+                <h3>2048</h3>
+                <p>Набери 2048 очков</p>
+            </a>
+
+            <a href="" class ="game_item" data-genre="arcade">
+                <img src="images/fruit-ninja.png" alt="">
+                <h3>Fruit ninja</h3>
+                <p>Разрежь все фрукты</p>
+            </a>
+            <a href="" class ="game_item">
+                <img src="images/tetris.png" alt="" data-genre="logic">
+                <h3>Тетрис</h3>
+                <p>Расставляй кубики в нужном положении</p>
+            </a>
+            <a href="" class ="game_item">
+                <img src="images/Ride.png" alt="" data-genre="arcade">
+                <h3>Гонки</h3>
+                <p>Доберись первым до финиша</p>
+            </a>
+             <a href="" class ="game_item">
+                <img src="images/basket.png" alt="" data-genre="arcade">
+                <h3>Баскетбол</h3>
+                <p>Попадай в кольцо и зарабатывай очки</p>
+            </a>
+        </div>
+    </main>
+
+
+</body>
+</html>
