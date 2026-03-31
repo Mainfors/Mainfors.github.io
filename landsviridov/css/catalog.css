@@ -1,0 +1,75 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.head{
+  max-width: 999999999999999px;  
+  padding-left: 100px;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    background-color: rgb(212, 80, 19);
+}
+
+
+.logotype{
+width: 13vh;
+height: 13vh;
+padding: 10px 5px 10px 5px;
+}
+.logo{
+ max-width: 100%;   
+ max-height:100%;
+ object-fit: cover;
+}
+
+.menu, .stop, .poisk, .news{
+    padding-top: 6vh;
+    cursor: pointer;
+    text-align: center;
+    font-size: large;
+}
+
+.nav_sh{
+ text-decoration: none;
+ color: inherit;
+
+}
+.s{
+    width: 700px;
+    height: 3vh;
+    border-radius: 5px; 
+}
+
+
+
+.butsearch{
+ height: 3vh;
+ border-radius: 3px;
+ background-color: rgba(228, 8, 191, 0.575);
+}
+
+img{
+    width: 300px;
+}
+
+
+.games{
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 30px;
+margin-top: 20px;
+align-items: center;
+}
+
+.game_item{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+}
+

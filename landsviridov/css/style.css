@@ -39,6 +39,8 @@ padding: 10px 5px 10px 5px;
     border-radius: 5px; 
 }
 
+
+
 .butsearch{
  height: 3vh;
  border-radius: 3px;
@@ -135,8 +137,27 @@ a{
 }
 
 
+.cityplay{
+    margin: auto;
+    display: flex;
+    
+    background: #cfb5b5;
+    width: 450px;
+    height: 450px;
+}
 
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: auto;
+}
 
+input{
+    border-radius: 10px;
+    width: 400px;
+    height: 50px;
+}
 
 
 
