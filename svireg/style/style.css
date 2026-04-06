@@ -1,4 +1,4 @@
-form{
+.Reg{
     display: flex;
     flex-direction: column;
     max-width: 300px;
@@ -8,3 +8,4 @@ form{
     border-radius: 4px;
     justify-content: space-between;
 }
+
