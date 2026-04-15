@@ -29,6 +29,14 @@
     <textarea name="message" id="message"></textarea>
     <input type="submit" value = "Отправить">
 </form>
+        <? include 'include/getMessages.php';
+        foreach($messages as $message):?>
+        <div class="message">
+            <p> Тема: <?= $message['theme'] ?></p>
+            <p> Сообщение: <?= $message['message'] ?></p>
+            <p> Дата: <?= $message['create_at'] ?></p>
+        </div>
+        <? endforeach ?>
     <a href="php/logOut.php">Выйти из аккаунта</a>
 </body>
 </html>
