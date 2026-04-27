@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Тест по Географии | Гео-Знайка</title>
+  <!-- Стили: единый аккуратный интерфейс, современная типографика -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
+    }
+    body {
+      background: linear-gradient(145deg, #e9f2f5 0%, #d4e3e8 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .app-container {
+      max-width: 750px;
+      width: 100%;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(18px);
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+      padding: 2rem 2rem 2.5rem;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+    h1, h2, h3 {
+      color: #0b3b4f;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .subtitle {
+      color: #2c5f6e;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      border-left: 4px solid #0f8b8d;
+      padding-left: 1rem;
+    }
+    .nav-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 1.8rem 0 1.5rem;
+    }
+    button, .btn-link {
+      background: #f0f7fa;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #0b3b4f;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #e1f0f3;
+      border: 1px solid transparent;
+      letter-spacing: 0.3px;
+    }
+    button:hover {
+      background: #cae3ea;
+      border-color: #0f8b8d;
+    }
+    button.primary {
+      background: #0f8b8d;
+      color: white;
+      box-shadow: 0 6px 14px rgba(15,139,141,0.3);
+    }
+    button.primary:hover {
+      background: #0b6e70;
+    }
+    button.danger {
+      background: #fce4e4;
+      color: #a12b2b;
+    }
+    button.danger:hover {
+      background: #f5c6c6;
+    }
+    .card {
+      background: #f9fdff;
+      border-radius: 20px;
+      padding: 1.6rem;
+      margin: 1.4rem 0;
+      border: 1px solid #d9eaf0;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.03);
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      margin: 0.5rem 0 1.2rem;
+      border: 1px solid #cbdde5;
+      border-radius: 30px;
+      font-size: 1rem;
+      background: white;
+      outline: none;
+      transition: 0.2s;
+    }
+    input:focus {
+      border-color: #0f8b8d;
+      box-shadow: 0 0 0 3px rgba(15,139,141,0.2);
+    }
+    .scenario-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .scenario-item {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.4rem;
+      border: 1px solid #e0edf2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .question-block {
+      background: #f4fafd;
+      border-radius: 18px;
+      padding: 1.5rem;
+      margin: 1.2rem 0;
+    }
+    .answer-option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0.8rem 0;
+      padding: 0.6rem 1rem;
+      background: white;
+      border-radius: 30px;
+      border: 1px solid #d4e3e8;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+    .answer-option:hover {
+      background: #e3f2f5;
+    }
+    .answer-option input[type="radio"] {
+      width: auto;
+      margin: 0;
+      accent-color: #0f8b8d;
+    }
+    .badge {
+      background: #0f8b8d;
+      color: white;
+      border-radius: 30px;
+      padding: 0.3rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .result-message {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #0b3b4f;
+    }
+    hr {
+      border: 0.5px solid #cde3e9;
+      margin: 1.2rem 0;
+    }
+    .hidden {
+      display: none !important;
+    }
+    .flex-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .admin-table td, .admin-table th {
+      padding: 0.7rem;
+      border-bottom: 1px solid #d4e3e8;
+      text-align: left;
+    }
+    .error-message {
+      color: #c43a3a;
+      font-size: 0.9rem;
+      margin-top: -0.5rem;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+<div class="app-container" id="app">
+  <!-- Главная / динамический контент будет рендериться через JS -->
+</div>
+
+<script>
+  // ========== БАЗА ДАННЫХ (эмуляция MySQL в памяти) ==========
+  const DB = {
+    users: [
+      { id: 1, name: 'admin', email: 'admin@geo.ru', password_hash: 'hash_admin_123', role: 'admin', created_at: '2025-03-01' },
+      { id: 2, name: 'user1', email: 'user@test.ru', password_hash: 'hash_user_123', role: 'user', created_at: '2025-03-02' }
+    ],
+    scenarios: [
+      { id: 1, title: 'Столицы мира', description: 'Проверьте знание столиц государств', category: 'Политическая география', created_at: '2025-03-10' },
+      { id: 2, title: 'Реки и озёра', description: 'Водные артерии планеты', category: 'Гидрография', created_at: '2025-03-11' }
+    ],
+    questions: [
+      // Сценарий 1 (Столицы) - 8 вопросов
+      { id: 1, scenario_id: 1, question_text: 'Столица Франции?', question_order: 1 },
+      { id: 2, scenario_id: 1, question_text: 'Столица Японии?', question_order: 2 },
+      { id: 3, scenario_id: 1, question_text: 'Столица Канады?', question_order: 3 },
+      { id: 4, scenario_id: 1, question_text: 'Столица Австралии?', question_order: 4 },
+      { id: 5, scenario_id: 1, question_text: 'Столица Бразилии?', question_order: 5 },
+      { id: 6, scenario_id: 1, question_text: 'Столица Египта?', question_order: 6 },
+      { id: 7, scenario_id: 1, question_text: 'Столица Индии?', question_order: 7 },
+      { id: 8, scenario_id: 1, question_text: 'Столица ЮАР?', question_order: 8 },
+      // Сценарий 2 (Реки и озёра) - 8 вопросов
+      { id: 9, scenario_id: 2, question_text: 'Самая длинная река мира?', question_order: 1 },
+      { id: 10, scenario_id: 2, question_text: 'Какое озеро самое глубокое?', question_order: 2 },
+      { id: 11, scenario_id: 2, question_text: 'Река, протекающая через Париж?', question_order: 3 },
+      { id: 12, scenario_id: 2, question_text: 'Крупнейшее озеро Африки?', question_order: 4 },
+      { id: 13, scenario_id: 2, question_text: 'На какой реке стоит Лондон?', question_order: 5 },
+      { id: 14, scenario_id: 2, question_text: 'Озеро между Перу и Боливией?', question_order: 6 },
+      { id: 15, scenario_id: 2, question_text: 'Самая полноводная река мира?', question_order: 7 },
+      { id: 16, scenario_id: 2, question_text: 'Река, впадающая в Каспийское море?', question_order: 8 }
+    ],
+    answers: [
+      // Вопрос 1 (Франция)
+      { id: 1, question_id: 1, answer_text: 'Париж', score: 10 },
+      { id: 2, question_id: 1, answer_text: 'Лион', score: 0 },
+      { id: 3, question_id: 1, answer_text: 'Марсель', score: 0 },
+      // Вопрос 2 (Япония)
+      { id: 4, question_id: 2, answer_text: 'Токио', score: 10 },
+      { id: 5, question_id: 2, answer_text: 'Осака', score: 0 },
+      { id: 6, question_id: 2, answer_text: 'Киото', score: 0 },
+      // Вопрос 3 (Канада)
+      { id: 7, question_id: 3, answer_text: 'Оттава', score: 10 },
+      { id: 8, question_id: 3, answer_text: 'Торонто', score: 0 },
+      { id: 9, question_id: 3, answer_text: 'Ванкувер', score: 0 },
+      // Вопрос 4 (Австралия)
+      { id: 10, question_id: 4, answer_text: 'Канберра', score: 10 },
+      { id: 11, question_id: 4, answer_text: 'Сидней', score: 0 },
+      { id: 12, question_id: 4, answer_text: 'Мельбурн', score: 0 },
+      // Вопрос 5 (Бразилия)
+      { id: 13, question_id: 5, answer_text: 'Бразилиа', score: 10 },
+      { id: 14, question_id: 5, answer_text: 'Рио-де-Жанейро', score: 0 },
+      { id: 15, question_id: 5, answer_text: 'Сан-Паулу', score: 0 },
+      // Вопрос 6 (Египет)
+      { id: 16, question_id: 6, answer_text: 'Каир', score: 10 },
+      { id: 17, question_id: 6, answer_text: 'Александрия', score: 0 },
+      { id: 18, question_id: 6, answer_text: 'Луксор', score: 0 },
+      // Вопрос 7 (Индия)
+      { id: 19, question_id: 7, answer_text: 'Нью-Дели', score: 10 },
+      { id: 20, question_id: 7, answer_text: 'Мумбаи', score: 0 },
+      { id: 21, question_id: 7, answer_text: 'Калькутта', score: 0 },
+      // Вопрос 8 (ЮАР)
+      { id: 22, question_id: 8, answer_text: 'Претория', score: 10 },
+      { id: 23, question_id: 8, answer_text: 'Кейптаун', score: 0 },
+      { id: 24, question_id: 8, answer_text: 'Йоханнесбург', score: 0 },
+      // Сценарий 2 вопросы (9-16)
+      { id: 25, question_id: 9, answer_text: 'Амазонка', score: 10 }, { id: 26, question_id: 9, answer_text: 'Нил', score: 0 }, { id: 27, question_id: 9, answer_text: 'Янцзы', score: 0 },
+      { id: 28, question_id: 10, answer_text: 'Байкал', score: 10 }, { id: 29, question_id: 10, answer_text: 'Танганьика', score: 0 }, { id: 30, question_id: 10, answer_text: 'Верхнее', score: 0 },
+      { id: 31, question_id: 11, answer_text: 'Сена', score: 10 }, { id: 32, question_id: 11, answer_text: 'Рона', score: 0 }, { id: 33, question_id: 11, answer_text: 'Луара', score: 0 },
+      { id: 34, question_id: 12, answer_text: 'Виктория', score: 10 }, { id: 35, question_id: 12, answer_text: 'Чад', score: 0 }, { id: 36, question_id: 12, answer_text: 'Ньяса', score: 0 },
+      { id: 37, question_id: 13, answer_text: 'Темза', score: 10 }, { id: 38, question_id: 13, answer_text: 'Северн', score: 0 }, { id: 39, question_id: 13, answer_text: 'Эйвон', score: 0 },
+      { id: 40, question_id: 14, answer_text: 'Титикака', score: 10 }, { id: 41, question_id: 14, answer_text: 'Маракайбо', score: 0 }, { id: 42, question_id: 14, answer_text: 'Поопо', score: 0 },
+      { id: 43, question_id: 15, answer_text: 'Амазонка', score: 10 }, { id: 44, question_id: 15, answer_text: 'Конго', score: 0 }, { id: 45, question_id: 15, answer_text: 'Ориноко', score: 0 },
+      { id: 46, question_id: 16, answer_text: 'Волга', score: 10 }, { id: 47, question_id: 16, answer_text: 'Урал', score: 0 }, { id: 48, question_id: 16, answer_text: 'Дон', score: 0 }
+    ],
+    results: [],
+    user_answers: []
+  };
+
+  // Хеширование паролей (упрощенное для демонстрации)
+  function simpleHash(password) {
+    return 'hash_' + password + '_secure';
+  }
+
+  // ========== СОСТОЯНИЕ ПРИЛОЖЕНИЯ ==========
+  let currentUser = null;               // { id, name, email, role }
+  let currentView = 'home';
+  let activeScenarioId = null;
+  let currentQuestionIndex = 0;
+  let selectedAnswers = {};            // questionId: answerId
+  let tempRegistrationError = '';
+
+  // ========== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ==========
+  function getUserById(id) { return DB.users.find(u => u.id === id); }
+  function getScenarioById(id) { return DB.scenarios.find(s => s.id === id); }
+  function getQuestionsByScenario(scenarioId) {
+    return DB.questions.filter(q => q.scenario_id === scenarioId).sort((a,b)=> a.question_order - b.question_order);
+  }
+  function getAnswersByQuestion(questionId) {
+    return DB.answers.filter(a => a.question_id === questionId);
+  }
+
+  // Интерпретация результата (диапазоны: 0-30 низкий, 31-60 средний, 61-80 высокий)
+  function interpretResult(totalScore, maxScore = 80) {
+    if (totalScore <= 25) return 'Начинающий географ';
+    else if (totalScore <= 55) return 'Знаток среднего уровня';
+    else return 'Продвинутый эксперт';
+  }
+
+  function logout() {
+    currentUser = null;
+    activeScenarioId = null;
+    currentQuestionIndex = 0;
+    selectedAnswers = {};
+    renderApp();
+  }
+
+  // ========== РЕНДЕРИНГ ИНТЕРФЕЙСА ==========
+  function renderApp() {
+    const app = document.getElementById('app');
+    if (!currentUser) {
+      renderAuthPage(app);
+      return;
+    }
+
+    // Основная оболочка для авторизованных
+    let html = `
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h1>🌍 Гео-Тест</h1>
+        <div class="flex-row">
+          <span style="font-weight:500;">${currentUser.name} (${currentUser.role})</span>
+          <button onclick="logout()" class="danger" style="padding:0.4rem 1.2rem;">Выйти</button>
+        </div>
+      </div>
+      <hr>
+    `;
+
+    // Навигация
+    html += `<div class="nav-buttons">`;
+    html += `<button onclick="switchView('home')" class="${currentView==='home'?'primary':''}">🏠 Главная</button>`;
+    html += `<button onclick="switchView('scenarios')" class="${currentView==='scenarios'?'primary':''}">📋 Сценарии</button>`;
+    html += `<button onclick="switchView('profile')" class="${currentView==='profile'?'primary':''}">👤 Личный кабинет</button>`;
+    if (currentUser.role === 'admin') {
+      html += `<button onclick="switchView('admin')" class="${currentView==='admin'?'primary':''}">⚙️ Админ</button>`;
+    }
+    html += `</div>`;
+
+    // Контентная область
+    if (currentView === 'home') html += renderHome();
+    else if (currentView === 'scenarios') html += renderScenarioList();
+    else if (currentView === 'test') html += renderTestInterface();
+    else if (currentView === 'result') html += renderResultPage();
+    else if (currentView === 'profile') html += renderProfile();
+    else if (currentView === 'admin') html += renderAdminPanel();
+
+    app.innerHTML = html;
+  }
+
+  function renderAuthPage(app) {
+    app.innerHTML = `
+      <h1>🌐 Тест по Географии</h1>
+      <p class="subtitle">Войдите или зарегистрируйтесь</p>
+      <div class="card">
+        <h3>Вход</h3>
+        <input type="email" id="loginEmail" placeholder="Email" value="user@test.ru">
+        <input type="password" id="loginPassword" placeholder="Пароль" value="123456">
+        <button class="primary" onclick="login()">Войти</button>
+        <p style="margin-top:1rem; font-size:0.9rem;">admin@geo.ru / admin123 (админ)</p>
+      </div>
+      <div class="card">
+        <h3>Регистрация</h3>
+        <input type="text" id="regName" placeholder="Имя">
+        <input type="email" id="regEmail" placeholder="Email">
+        <input type="password" id="regPassword" placeholder="Пароль">
+        <div id="regError" class="error-message"></div>
+        <button onclick="register()" class="primary">Зарегистрироваться</button>
+      </div>
+    `;
+  }
+
+  function login() {
+    const email = document.getElementById('loginEmail').value.trim();
+    const password = document.getElementById('loginPassword').value.trim();
+    const user = DB.users.find(u => u.email === email && u.password_hash === simpleHash(password));
+    if (user) {
+      currentUser = { id: user.id, name: user.name, email: user.email, role: user.role };
+      currentView = 'home';
+      renderApp();
+    } else {
+      alert('Неверный email или пароль');
+    }
+  }
+
+  function register() {
+    const name = document.getElementById('regName').value.trim();
+    const email = document.getElementById('regEmail').value.trim();
+    const password = document.getElementById('regPassword').value.trim();
+    const errorDiv = document.getElementById('regError');
+    if (!name || !email || !password) {
+      errorDiv.innerText = 'Все поля обязательны';
+      return;
+    }
+    if (DB.users.some(u => u.email === email)) {
+      errorDiv.innerText = 'Пользователь с таким email уже существует';
+      return;
+    }
+    const newUser = {
+      id: DB.users.length + 1,
+      name, email,
+      password_hash: simpleHash(password),
+      role: 'user',
+      created_at: new Date().toISOString().slice(0,10)
+    };
+    DB.users.push(newUser);
+    currentUser = { id: newUser.id, name: newUser.name, email: newUser.email, role: 'user' };
+    currentView = 'home';
+    renderApp();
+  }
+
+  function switchView(view) {
+    if (view === 'test' && !activeScenarioId) {
+      alert('Сначала выберите сценарий');
+      return;
+    }
+    currentView = view;
+    if (view !== 'test') {
+      activeScenarioId = null;
+      currentQuestionIndex = 0;
+      selectedAnswers = {};
+    }
+    renderApp();
+  }
+
+  function renderHome() {
+    return `<div class="card"><h2>Добро пожаловать!</h2><p>Проверьте знания по географии: столицы, реки, озёра. Выберите сценарий и пройдите тест.</p></div>`;
+  }
+
+  function renderScenarioList() {
+    let html = '<h2>Доступные сценарии</h2><div class="scenario-list">';
+    DB.scenarios.forEach(s => {
+      const qCount = DB.questions.filter(q => q.scenario_id === s.id).length;
+      html += `<div class="scenario-item">
+        <div><strong>${s.title}</strong><br><small>${s.description} | ${s.category} | Вопросов: ${qCount}</small></div>
+        <button class="primary" onclick="startScenario(${s.id})">▶ Начать</button>
+      </div>`;
+    });
+    html += '</div>';
+    return html;
+  }
+
+  function startScenario(scenarioId) {
+    activeScenarioId = scenarioId;
+    currentQuestionIndex = 0;
+    selectedAnswers = {};
+    currentView = 'test';
+    renderApp();
+  }
+
+  function renderTestInterface() {
+    const scenario = getScenarioById(activeScenarioId);
+    if (!scenario) return '<p>Сценарий не найден</p>';
+    const questions = getQuestionsByScenario(activeScenarioId);
+    if (questions.length === 0) return '<p>Вопросы отсутствуют</p>';
+    const q = questions[currentQuestionIndex];
+    const answers = getAnswersByQuestion(q.id);
+    const selectedAnsId = selectedAnswers[q.id];
+
+    let html = `<h2>${scenario.title}</h2><p>Вопрос ${currentQuestionIndex+1} из ${questions.length}</p>`;
+    html += `<div class="question-block"><h3>${q.question_text}</h3>`;
+    answers.forEach(a => {
+      html += `<label class="answer-option">
+        <input type="radio" name="question_${q.id}" value="${a.id}" ${selectedAnsId === a.id ? 'checked' : ''} onchange="selectAnswer(${q.id}, ${a.id})">
+        ${a.answer_text}
+      </label>`;
+    });
+    html += `</div>`;
+    html += `<div class="flex-row" style="justify-content:space-between;">
+      <button onclick="prevQuestion()" ${currentQuestionIndex===0?'disabled':''}>← Назад</button>
+      <button class="primary" onclick="nextQuestion()">${currentQuestionIndex===questions.length-1?'Завершить':'Далее →'}</button>
+    </div>`;
+    return html;
+  }
+
+  function selectAnswer(questionId, answerId) {
+    selectedAnswers[questionId] = answerId;
+  }
+
+  function prevQuestion() {
+    if (currentQuestionIndex > 0) {
+      currentQuestionIndex--;
+      renderApp();
+    }
+  }
+
+  function nextQuestion() {
+    const questions = getQuestionsByScenario(activeScenarioId);
+    const q = questions[currentQuestionIndex];
+    if (!selectedAnswers[q.id]) {
+      alert('Пожалуйста, выберите вариант ответа');
+      return;
+    }
+    if (currentQuestionIndex < questions.length - 1) {
+      currentQuestionIndex++;
+      renderApp();
+    } else {
+      finishTest();
+    }
+  }
+
+  function finishTest() {
+    const questions = getQuestionsByScenario(activeScenarioId);
+    let totalScore = 0;
+    const userAnswersData = [];
+
+    questions.forEach(q => {
+      const ansId = selectedAnswers[q.id];
+      if (ansId) {
+        const answer = DB.answers.find(a => a.id === ansId);
+        if (answer) {
+          totalScore += answer.score;
+          userAnswersData.push({
+            id: DB.user_answers.length + 1 + userAnswersData.length,
+            user_id: currentUser.id,
+            scenario_id: activeScenarioId,
+            question_id: q.id,
+            answer_id: ansId
+          });
+        }
+      }
+    });
+
+    const resultLabel = interpretResult(totalScore);
+    const resultRecord = {
+      id: DB.results.length + 1,
+      user_id: currentUser.id,
+      scenario_id: activeScenarioId,
+      total_score: totalScore,
+      result_label: resultLabel,
+      passed_at: new Date().toISOString()
+    };
+    DB.results.push(resultRecord);
+    DB.user_answers.push(...userAnswersData);
+
+    // Сохраняем для отображения
+    window.lastResult = { totalScore, resultLabel, scenarioTitle: getScenarioById(activeScenarioId)?.title };
+    activeScenarioId = null;
+    currentView = 'result';
+    renderApp();
+  }
+
+  function renderResultPage() {
+    const res = window.lastResult;
+    if (!res) return '<p>Нет данных о результате</p>';
+    return `<div class="card" style="text-align:center;">
+      <h2>🎉 Тест завершён!</h2>
+      <p><strong>${res.scenarioTitle}</strong></p>
+      <p class="result-message">Баллов: ${res.totalScore}</p>
+      <p style="font-size:1.2rem;">${res.resultLabel}</p>
+      <button class="primary" onclick="switchView('scenarios')">К списку сценариев</button>
+    </div>`;
+  }
+
+  function renderProfile() {
+    const userResults = DB.results.filter(r => r.user_id === currentUser.id);
+    let html = '<h2>Личный кабинет</h2><div class="card">';
+    if (userResults.length === 0) html += '<p>Вы ещё не проходили тесты.</p>';
+    else {
+      html += '<table class="admin-table"><tr><th>Сценарий</th><th>Дата</th><th>Баллы</th><th>Результат</th></tr>';
+      userResults.forEach(r => {
+        const sc = getScenarioById(r.scenario_id);
+        html += `<tr><td>${sc?.title||'—'}</td><td>${new Date(r.passed_at).toLocaleDateString()}</td><td>${r.total_score}</td><td>${r.result_label}</td></tr>`;
+      });
+      html += '</table>';
+    }
+    html += '</div>';
+    return html;
+  }
+
+  function renderAdminPanel() {
+    if (currentUser.role !== 'admin') return '<p>Доступ запрещён</p>';
+    let html = '<h2>Администрирование</h2>';
+    html += '<div class="card"><h3>Все результаты пользователей</h3>';
+    const allRes = DB.results;
+    if (allRes.length === 0) html += '<p>Нет результатов</p>';
+    else {
+      html += '<table class="admin-table"><tr><th>Пользователь</th><th>Сценарий</th><th>Баллы</th><th>Дата</th></tr>';
+      allRes.forEach(r => {
+        const usr = getUserById(r.user_id);
+        const sc = getScenarioById(r.scenario_id);
+        html += `<tr><td>${usr?.name||'?'}</td><td>${sc?.title||'?'}</td><td>${r.total_score}</td><td>${new Date(r.passed_at).toLocaleDateString()}</td></tr>`;
+      });
+      html += '</table>';
+    }
+    html += '</div>';
+    // Демонстрация управления (упрощённо) – показать сценарии
+    html += '<div class="card"><h3>Сценарии</h3>';
+    DB.scenarios.forEach(s => html += `<p><strong>${s.title}</strong> (${s.category})</p>`);
+    html += '<p><em>Добавление/редактирование через панель (в реальной версии реализовано с формами).</em></p>';
+    html += '</div>';
+    return html;
+  }
+
+  // Инициализация
+  renderApp();
+</script>
+</body>
+</html>
