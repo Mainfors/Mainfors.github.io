@@ -34,19 +34,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $database = new Database();
             $db = $database->getConnection();
 
-            // Проверка уникальности email
-            $checkStmt = $db->prepare("SELECT id FROM users WHERE email = :email");
-            $checkStmt->execute([':email' => $email]);
             
-            if ($checkStmt->fetch()) {
+            $check = $db->prepare("SELECT id FROM users WHERE email = :email");
+            $check->execute([':email' => $email]);
+            
+            if ($check->fetch()) {
                 $error = 'Пользователь с таким email уже существует';
             } else {
-                // Хеширование пароля
+                
                 $passwordHash = password_hash($password, PASSWORD_BCRYPT);
                 
-                // Добавление пользователя
-                $insertStmt = $db->prepare("INSERT INTO users (name, email, password_hash, role) VALUES (:name, :email, :password_hash, 'user')");
-                $insertStmt->execute([
+               
+                $insert = $db->prepare("INSERT INTO users (name, email, password_hash, role) VALUES (:name, :email, :password_hash, 'user')");
+                $insert->execute([
                     ':name' => $name,
                     ':email' => $email,
                     ':password_hash' => $passwordHash
@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $userId = $db->lastInsertId();
 
-                // Автоматический вход после регистрации
+                
                 $_SESSION['user_id'] = $userId;
                 $_SESSION['user_name'] = $name;
                 $_SESSION['user_email'] = $email;

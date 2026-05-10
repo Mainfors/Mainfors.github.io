@@ -3,33 +3,33 @@
 require_once __DIR__ . '/config/database.php';
 
 // Безопасная проверка сессии
-$isLoggedIn = isset($_SESSION['user_id']);
+$Logged = isset($_SESSION['user_id']);
 $userName = $_SESSION['user_name'] ?? '';
 $userRole = $_SESSION['user_role'] ?? '';
-$isAdmin = ($userRole === 'admin');
+$Admin = ($userRole === 'admin');
 ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Гео-Тест | Главная</title>
+    <title>Географический Тест | Главная</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="box">
         <header>
-            <h1>🌍 Тест по Географии</h1>
+            <h1>Тест по Географии</h1>
             <nav>
                 <a href="index.php" class="active">Главная</a>
-                <?php if ($isLoggedIn): ?>
+                <?php if ($Logged): ?>
                     <a href="test.php">Сценарии</a>
                     <a href="user/profile.php">Личный кабинет</a>
-                    <?php if ($isAdmin): ?>
+                    <?php if ($Admin): ?>
                         <a href="admin/index.php">Админ-панель</a>
                     <?php endif; ?>
-                    <span class="user-info">👤 <?= htmlspecialchars($userName) ?></span>
-                    <a href="auth/logout.php" class="btn-logout">Выйти</a>
+                    <span class="userinfo"> <?= htmlspecialchars($userName) ?></span>
+                    <a href="auth/logout.php" class="logout">Выйти</a>
                 <?php else: ?>
                     <a href="javascript:void(0)" onclick="showLoginForm()">Войти</a>
                     <a href="javascript:void(0)" onclick="showRegisterForm()">Регистрация</a>
@@ -38,16 +38,15 @@ $isAdmin = ($userRole === 'admin');
         </header>
 
         <main>
-            <?php if ($isLoggedIn): ?>
-                <div class="welcome-card">
+            <?php if ($Logged): ?>
+                <div class="welcome">
                     <h2>Добро пожаловать, <?= htmlspecialchars($userName) ?>!</h2>
                     <p>Выберите сценарий и проверьте свои знания по географии.</p>
-                    <a href="test.php" class="btn btn-primary">Перейти к тестам</a>
+                    <a href="test.php" class="btn">Перейти к тестам</a>
                 </div>
             <?php else: ?>
-                <div class="auth-container">
-                    <!-- Форма входа -->
-                    <div id="loginForm" class="form-card">
+                <div class="auth">
+                    <div id="loginForm" class="form">
                         <h2>Вход в систему</h2>
                         <form id="loginFormElement" method="POST" action="auth/login.php">
                             <div class="form-group">
@@ -57,38 +56,38 @@ $isAdmin = ($userRole === 'admin');
                             </div>
                             <div class="form-group">
                                 <label for="loginPassword">Пароль:</label>
-                                <input type="password" id="loginPassword" name="password" required 
+                                <input type="password" id="logPassword" name="password" required 
                                        placeholder="password">
                             </div>
-                            <button type="submit" class="btn btn-primary">Войти</button>
+                            <button type="submit" class="btn">Войти</button>
                         </form>
                         <div id="loginMessage" class="message"></div>
-                        <p class="form-footer">
+                        <p class="formak">
                             Нет аккаунта? 
                             <a href="javascript:void(0)" onclick="showRegisterForm()">Зарегистрироваться</a>
                         </p>
                     </div>
 
-                    <!-- Форма регистрации -->
-                    <div id="registerForm" class="form-card" style="display: none;">
+                    
+                    <div id="registerForm" class="form" style="display: none;">
                         <h2>Регистрация</h2>
                         <form id="registerFormElement" method="POST" action="auth/register.php">
-                            <div class="form-group">
+                            <div class="formak">
                                 <label for="regName">Имя:</label>
                                 <input type="text" id="regName" name="name" required minlength="2">
                             </div>
-                            <div class="form-group">
-                                <label for="regEmail">Email:</label>
-                                <input type="email" id="regEmail" name="email" required>
+                            <div class="formak">
+                                <label for="Email">Email:</label>
+                                <input type="email" id="Email" name="email" required>
                             </div>
-                            <div class="form-group">
+                            <div class="formak">
                                 <label for="regPassword">Пароль:</label>
-                                <input type="password" id="regPassword" name="password" required minlength="6">
+                                <input type="password" id="Password" name="password" required minlength="6">
                             </div>
-                            <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                            <button type="submit" class="btn">Зарегистрироваться</button>
                         </form>
                         <div id="registerMessage" class="message"></div>
-                        <p class="form-footer">
+                        <p class="formfot">
                             Уже есть аккаунт? 
                             <a href="javascript:void(0)" onclick="showLoginForm()">Войти</a>
                         </p>
@@ -98,8 +97,7 @@ $isAdmin = ($userRole === 'admin');
         </main>
     </div>
 
-    <?php if (!$isLoggedIn): ?>
-    <!-- Переносим JavaScript в конец для лучшей производительности -->
+    <?php if (!$Logged): ?>
     <script src="js/auth.js"></script>
     <?php endif; ?>
 </body>

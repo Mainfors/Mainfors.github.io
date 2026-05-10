@@ -1,5 +1,5 @@
 <?php
-// test.php
+
 require_once __DIR__ . '/config/database.php';
 
 if (!isset($_SESSION['user_id'])) {
@@ -10,21 +10,21 @@ if (!isset($_SESSION['user_id'])) {
 $database = new Database();
 $db = $database->getConnection();
 
-// Получение всех сценариев
+
 $scenarios = $db->query("SELECT * FROM scenarios ORDER BY created_at DESC")->fetchAll();
 
-// Обработка запуска теста
+
 $currentScenario = null;
 $questions = [];
 if (isset($_GET['scenario_id'])) {
-    $stmt = $db->prepare("SELECT * FROM scenarios WHERE id = :id");
-    $stmt->execute([':id' => $_GET['scenario_id']]);
-    $currentScenario = $stmt->fetch();
+    $scen = $db->prepare("SELECT * FROM scenarios WHERE id = :id");
+    $scen->execute([':id' => $_GET['scenario_id']]);
+    $currentScenario = $scen->fetch();
     
     if ($currentScenario) {
-        $stmt = $db->prepare("SELECT * FROM questions WHERE scenario_id = :sid ORDER BY question_order");
-        $stmt->execute([':sid' => $currentScenario['id']]);
-        $questions = $stmt->fetchAll();
+        $scen= $db->prepare("SELECT * FROM questions WHERE scenario_id = :sid ORDER BY question_order");
+        $scen->execute([':sid' => $currentScenario['id']]);
+        $questions = $scen->fetchAll();
     }
 }
 ?>
@@ -36,9 +36,9 @@ if (isset($_GET['scenario_id'])) {
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="box">
         <header>
-            <h1>📝 Тестирование</h1>
+            scenТестирование</h1>
             <nav>
                 <a href="index.php">Главная</a>
                 <a href="user/profile.php">Личный кабинет</a>
@@ -48,13 +48,13 @@ if (isset($_GET['scenario_id'])) {
         <main>
             <?php if (!$currentScenario): ?>
                 <h2>Выберите сценарий</h2>
-                <div class="scenarios-grid">
+                <div class="scenarios">
                     <?php foreach ($scenarios as $scenario): ?>
-                        <div class="scenario-card">
+                        <div class="scenario">
                             <h3><?= htmlspecialchars($scenario['title']) ?></h3>
                             <p><?= htmlspecialchars($scenario['description']) ?></p>
                             <span class="badge"><?= htmlspecialchars($scenario['category']) ?></span>
-                            <a href="test.php?scenario_id=<?= $scenario['id'] ?>" class="btn btn-primary">Начать тест</a>
+                            <a href="test.php?scenario_id=<?= $scenario['id'] ?>" class="btn">Начать тест</a>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -63,21 +63,21 @@ if (isset($_GET['scenario_id'])) {
                     <input type="hidden" name="scenario_id" value="<?= $currentScenario['id'] ?>">
                     <h2><?= htmlspecialchars($currentScenario['title']) ?></h2>
                     <?php foreach ($questions as $index => $question): 
-                        $stmt = $db->prepare("SELECT * FROM answers WHERE question_id = :qid");
-                        $stmt->execute([':qid' => $question['id']]);
-                        $answers = $stmt->fetchAll();
+                        $scen = $db->prepare("SELECT * FROM answers WHERE question_id = :qid");
+                        $scen->execute([':qid' => $question['id']]);
+                        $answers = $scen->fetchAll();
                     ?>
-                        <div class="question-block">
+                        <div class="question">
                             <h3>Вопрос <?= $index + 1 ?>: <?= htmlspecialchars($question['question_text']) ?></h3>
                             <?php foreach ($answers as $answer): ?>
-                                <label class="answer-option">
+                                <label class="answer">
                                     <input type="radio" name="answers[<?= $question['id'] ?>]" value="<?= $answer['id'] ?>" required>
                                     <?= htmlspecialchars($answer['answer_text']) ?>
                                 </label>
                             <?php endforeach; ?>
                         </div>
                     <?php endforeach; ?>
-                    <button type="submit" class="btn btn-primary btn-large">Завершить тест</button>
+                    <button type="submit" class="btn">Завершить тест</button>
                 </form>
             <?php endif; ?>
         </main>

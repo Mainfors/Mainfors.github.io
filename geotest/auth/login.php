@@ -21,12 +21,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $database = new Database();
             $db = $database->getConnection();
 
-            $stmt = $db->prepare("SELECT id, name, email, password_hash, role FROM users WHERE email = :email LIMIT 1");
-            $stmt->execute([':email' => $email]);
-            $user = $stmt->fetch();
+            $scen = $db->prepare("SELECT id, name, email, password_hash, role FROM users WHERE email = :email LIMIT 1");
+            $scen->execute([':email' => $email]);
+            $user = $scen->fetch();
 
             if ($user && password_verify($password, $user['password_hash'])) {
-                // Успешная авторизация
+               
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['user_name'] = $user['name'];
                 $_SESSION['user_email'] = $user['email'];
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
     
-    // Если есть ошибка, возвращаем на страницу с сообщением
+    
     if ($error) {
         $_SESSION['login_error'] = $error;
         header('Location: ../index.php?error=login');

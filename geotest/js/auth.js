@@ -1,14 +1,14 @@
 function showLoginForm() {
     document.getElementById('loginForm').style.display = 'block';
     document.getElementById('registerForm').style.display = 'none';
-    // Очищаем сообщения об ошибках
+    
     clearMessages();
 }
 
 function showRegisterForm() {
     document.getElementById('loginForm').style.display = 'none';
     document.getElementById('registerForm').style.display = 'block';
-    // Очищаем сообщения об ошибках
+
     clearMessages();
 }
 
@@ -20,15 +20,13 @@ function clearMessages() {
     });
 }
 
-// Обработка ошибок из PHP сессии
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const error = urlParams.get('error');
     
     if (error === 'login') {
         showLoginForm();
-        // В реальном приложении здесь можно получить сообщение из сессии
-        // Для простоты показываем статическое сообщение
+        
         const loginMessage = document.getElementById('loginMessage');
         if (loginMessage) {
             loginMessage.textContent = 'Ошибка входа. Проверьте данные.';
@@ -44,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// AJAX-обработчики форм (альтернативный способ без перезагрузки)
 document.getElementById('loginFormElement')?.addEventListener('submit', async function(e) {
     e.preventDefault();
     

@@ -2,22 +2,9 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
---
--- База данных: `geo_test`
---
 CREATE DATABASE IF NOT EXISTS `geo_test` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE `geo_test`;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `answers`
---
 
 CREATE TABLE `answers` (
   `id` int NOT NULL,
@@ -26,9 +13,6 @@ CREATE TABLE `answers` (
   `score` int NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Дамп данных таблицы `answers`
---
 
 INSERT INTO `answers` (`id`, `question_id`, `answer_text`, `score`) VALUES
 -- Вопрос 1 (Столица Франции)
@@ -72,11 +56,7 @@ INSERT INTO `answers` (`id`, `question_id`, `answer_text`, `score`) VALUES
 (29, 10, 'Танганьика', 0),
 (30, 10, 'Верхнее', 0);
 
--- --------------------------------------------------------
 
---
--- Структура таблицы `questions`
---
 
 CREATE TABLE `questions` (
   `id` int NOT NULL,
@@ -85,9 +65,7 @@ CREATE TABLE `questions` (
   `question_order` int NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Дамп данных таблицы `questions`
---
+
 
 INSERT INTO `questions` (`id`, `scenario_id`, `question_text`, `question_order`) VALUES
 -- Сценарий 1: Столицы мира (8 вопросов)
@@ -99,15 +77,11 @@ INSERT INTO `questions` (`id`, `scenario_id`, `question_text`, `question_order`)
 (6, 1, 'Какая столица Египта?', 6),
 (7, 1, 'Какая столица Индии?', 7),
 (8, 1, 'Какая столица ЮАР?', 8),
--- Сценарий 2: Реки и озера (минимум 8 вопросов, здесь показано 2 для примера, остальные аналогично)
+
 (9, 2, 'Какая самая длинная река в мире?', 1),
 (10, 2, 'Какое озеро самое глубокое в мире?', 2);
 
--- --------------------------------------------------------
 
---
--- Структура таблицы `results`
---
 
 CREATE TABLE `results` (
   `id` int NOT NULL,
@@ -118,11 +92,6 @@ CREATE TABLE `results` (
   `passed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
---
--- Структура таблицы `scenarios`
---
 
 CREATE TABLE `scenarios` (
   `id` int NOT NULL,
@@ -132,19 +101,13 @@ CREATE TABLE `scenarios` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Дамп данных таблицы `scenarios`
---
+
 
 INSERT INTO `scenarios` (`id`, `title`, `description`, `category`, `created_at`) VALUES
 (1, 'Столицы мира', 'Проверьте свои знания столиц государств', 'Политическая география', '2025-03-10 10:00:00'),
 (2, 'Реки и озёра', 'Водные артерии планеты', 'Гидрография', '2025-03-10 10:00:00');
 
--- --------------------------------------------------------
 
---
--- Структура таблицы `users`
---
 
 CREATE TABLE `users` (
   `id` int NOT NULL,
@@ -155,19 +118,12 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Дамп данных таблицы `users`
---
 
 INSERT INTO `users` (`id`, `name`, `email`, `password_hash`, `role`, `created_at`) VALUES
 (1, 'Администратор', 'admin@geo.ru', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin', '2025-03-10 10:00:00');
--- Пароль: password
 
--- --------------------------------------------------------
 
---
--- Структура таблицы `user_answers`
---
+
 
 CREATE TABLE `user_answers` (
   `id` int NOT NULL,
@@ -178,9 +134,7 @@ CREATE TABLE `user_answers` (
   `answered_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Индексы сохранённых таблиц
---
+
 
 ALTER TABLE `answers`
   ADD PRIMARY KEY (`id`),
@@ -209,9 +163,7 @@ ALTER TABLE `user_answers`
   ADD KEY `question_id` (`question_id`),
   ADD KEY `answer_id` (`answer_id`);
 
---
--- AUTO_INCREMENT для сохранённых таблиц
---
+
 
 ALTER TABLE `answers`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
@@ -231,9 +183,7 @@ ALTER TABLE `users`
 ALTER TABLE `user_answers`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
---
--- Ограничения внешнего ключа
---
+
 
 ALTER TABLE `answers`
   ADD CONSTRAINT `answers_ibfk_1` FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`) ON DELETE CASCADE;

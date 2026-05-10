@@ -28,9 +28,9 @@ try {
     
     foreach ($answers as $questionId => $answerId) {
         // Получаем балл за ответ
-        $stmt = $db->prepare("SELECT score FROM answers WHERE id = :aid AND question_id = :qid");
-        $stmt->execute([':aid' => $answerId, ':qid' => $questionId]);
-        $answer = $stmt->fetch();
+        $scen = $db->prepare("SELECT score FROM answers WHERE id = :aid AND question_id = :qid");
+        $scen->execute([':aid' => $answerId, ':qid' => $questionId]);
+        $answer = $scen->fetch();
         
         if ($answer) {
             $totalScore += $answer['score'];
@@ -54,8 +54,8 @@ try {
     }
 
     // Сохраняем результат
-    $stmt = $db->prepare("INSERT INTO results (user_id, scenario_id, total_score, result_label) VALUES (:uid, :sid, :score, :label)");
-    $stmt->execute([
+    $scen = $db->prepare("INSERT INTO results (user_id, scenario_id, total_score, result_label) VALUES (:uid, :sid, :score, :label)");
+    $scen->execute([
         ':uid' => $userId,
         ':sid' => $scenarioId,
         ':score' => $totalScore,
@@ -65,9 +65,9 @@ try {
     $db->commit();
     
     // Получаем информацию о сценарии
-    $stmt = $db->prepare("SELECT title FROM scenarios WHERE id = :id");
-    $stmt->execute([':id' => $scenarioId]);
-    $scenario = $stmt->fetch();
+    $scen = $db->prepare("SELECT title FROM scenarios WHERE id = :id");
+    $scen->execute([':id' => $scenarioId]);
+    $scenario = $scen->fetch();
 
 } catch (Exception $e) {
     $db->rollBack();
@@ -84,7 +84,7 @@ try {
 <body>
     <div class="container">
         <header>
-            <h1>🎉 Результат теста</h1>
+            <h1> Результат теста</h1>
             <nav>
                 <a href="index.php">Главная</a>
                 <a href="user/profile.php">Личный кабинет</a>
@@ -92,16 +92,16 @@ try {
         </header>
 
         <main>
-            <div class="result-card">
+            <div class="results">
                 <h2><?= htmlspecialchars($scenario['title']) ?></h2>
-                <div class="result-score">
-                    <span class="score-number"><?= $totalScore ?></span>
-                    <span class="score-unit">баллов</span>
+                <div class="score">
+                    <span class="scorenum"><?= $totalScore ?></span>
+                    <span class="scores">баллов</span>
                 </div>
                 <div class="result-label <?= str_replace(' ', '-', strtolower($resultLabel)) ?>">
                     <?= htmlspecialchars($resultLabel) ?>
                 </div>
-                <a href="test.php" class="btn btn-primary">Пройти другой тест</a>
+                <a href="test.php" class="btn">Пройти другой тест</a>
             </div>
         </main>
     </div>

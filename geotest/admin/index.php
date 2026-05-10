@@ -10,7 +10,6 @@ if (!isset($_SESSION['user_id']) || ($_SESSION['user_role'] ?? '') !== 'admin') 
 $database = new Database();
 $db = $database->getConnection();
 
-// Получение всех результатов
 $results = $db->query("
     SELECT r.*, u.name as user_name, s.title as scenario_title 
     FROM results r 
@@ -19,7 +18,7 @@ $results = $db->query("
     ORDER BY r.passed_at DESC
 ")->fetchAll();
 
-// Получение статистики
+
 $totalUsers = $db->query("SELECT COUNT(*) FROM users")->fetchColumn();
 $totalTests = $db->query("SELECT COUNT(*) FROM results")->fetchColumn();
 ?>
@@ -31,9 +30,9 @@ $totalTests = $db->query("SELECT COUNT(*) FROM results")->fetchColumn();
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="box">
         <header>
-            <h1>⚙️ Административная панель</h1>
+            <h1>Административная панель</h1>
             <nav>
                 <a href="../index.php">Главная</a>
                 <a href="../auth/logout.php">Выйти</a>
@@ -41,19 +40,19 @@ $totalTests = $db->query("SELECT COUNT(*) FROM results")->fetchColumn();
         </header>
 
         <main>
-            <div class="stats-cards">
-                <div class="stat-card">
+            <div class="status">
+                <div class="stat">
                     <h3>Пользователи</h3>
                     <p class="stat-number"><?= $totalUsers ?></p>
                 </div>
-                <div class="stat-card">
+                <div class="stat">
                     <h3>Пройдено тестов</h3>
                     <p class="stat-number"><?= $totalTests ?></p>
                 </div>
             </div>
 
             <h2>Результаты пользователей</h2>
-            <table class="admin-table">
+            <table class="admin">
                 <thead>
                     <tr>
                         <th>Пользователь</th>

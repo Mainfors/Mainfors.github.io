@@ -1,5 +1,5 @@
 <?php
-// user/profile.php
+
 require_once __DIR__ . '/../config/database.php';
 
 if (!isset($_SESSION['user_id'])) {
@@ -12,16 +12,16 @@ $db = $database->getConnection();
 
 $userId = $_SESSION['user_id'];
 
-// Получаем результаты пользователя
-$stmt = $db->prepare("
+
+$scen = $db->prepare("
     SELECT r.*, s.title as scenario_title 
     FROM results r 
     JOIN scenarios s ON r.scenario_id = s.id 
     WHERE r.user_id = :uid 
     ORDER BY r.passed_at DESC
 ");
-$stmt->execute([':uid' => $userId]);
-$results = $stmt->fetchAll();
+$scen->execute([':uid' => $userId]);
+$results = $scen->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -33,7 +33,7 @@ $results = $stmt->fetchAll();
 <body>
     <div class="container">
         <header>
-            <h1>👤 Личный кабинет</h1>
+            <h1>Личный кабинет</h1>
             <nav>
                 <a href="../index.php">Главная</a>
                 <a href="../test.php">Тесты</a>
@@ -48,7 +48,7 @@ $results = $stmt->fetchAll();
             <?php if (empty($results)): ?>
                 <p>Вы еще не прошли ни одного теста.</p>
             <?php else: ?>
-                <table class="results-table">
+                <table class="resultat">
                     <thead>
                         <tr>
                             <th>Сценарий</th>

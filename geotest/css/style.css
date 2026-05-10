@@ -5,17 +5,16 @@
 }
 
 body {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: rgb(157, 228, 143);
     min-height: 100vh;
     padding: 20px;
 }
 
-.container {
+.box {
     max-width: 900px;
     margin: 0 auto;
-    background: white;
-    border-radius: 20px;
+    background: rgb(243, 240, 240);
+    border-radius: 10px;
     padding: 30px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
@@ -26,12 +25,12 @@ header {
     align-items: center;
     margin-bottom: 30px;
     padding-bottom: 20px;
-    border-bottom: 2px solid #eee;
+    border-bottom: 2px solid #ffffff;
 }
 
 nav a {
     margin-left: 15px;
-    color: #667eea;
+    color: #24e4b4;
     text-decoration: none;
     font-weight: 500;
 }
@@ -43,21 +42,20 @@ nav a {
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
+    background-color: #667eea;
+    margin: 7px;
 }
 
-.btn-primary {
-    background: #667eea;
-    color: white;
-}
 
-.form-card {
+
+.form {
     background: #f8f9fa;
     padding: 20px;
     border-radius: 10px;
     margin: 20px 0;
 }
 
-.form-group {
+.formak{
     margin-bottom: 15px;
 }
 
@@ -70,14 +68,14 @@ input[type="password"] {
     border-radius: 5px;
 }
 
-.question-block {
+.question{
     background: #f8f9fa;
     padding: 20px;
     margin: 15px 0;
     border-radius: 10px;
 }
 
-.answer-option {
+.answer{
     display: block;
     padding: 10px;
     margin: 5px 0;
@@ -87,12 +85,12 @@ input[type="password"] {
     cursor: pointer;
 }
 
-.result-card {
+.results {
     text-align: center;
     padding: 40px;
 }
 
-.score-number {
+.scorenum {
     font-size: 48px;
     font-weight: bold;
     color: #667eea;
@@ -117,7 +115,7 @@ th, td {
     margin-bottom: 30px;
 }
 
-.stat-card {
+.stat {
     background: #667eea;
     color: white;
     padding: 20px;

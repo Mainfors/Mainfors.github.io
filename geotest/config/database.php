@@ -1,7 +1,5 @@
 <?php
-// config/database.php
 
-// Запуск сессии должен быть ПЕРЕД любым выводом
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
