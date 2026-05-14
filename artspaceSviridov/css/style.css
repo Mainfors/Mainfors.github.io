@@ -1,0 +1,229 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f5ff;
+    color:#222;
+    width:100%;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+header{
+    width:100%;
+    background:linear-gradient(135deg,#6c63ff,#918bff);
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    color:white;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+header h1{
+    font-size:28px;
+    letter-spacing:1px;
+}
+
+nav{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+nav a{
+    width:100%;
+    text-align:center;
+    text-decoration:none;
+    background:white;
+    color:#6c63ff;
+    padding:14px;
+    border-radius:14px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav a:hover{
+    transform:translateY(-2px);
+    background:#ecebff;
+}
+
+.slider{
+    position:relative;
+    width:95%;
+    max-width:390px;
+    height:230px;
+    margin:20px auto;
+    overflow:hidden;
+    border-radius:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.15);
+}
+
+.slides{
+    width:100%;
+    height:100%;
+    position:relative;
+}
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    display:none;
+}
+
+.slide.active{
+    display:block;
+    animation:fade 1s;
+}
+
+.prev,
+.next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:50%;
+    background:rgba(0,0,0,0.5);
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    z-index:10;
+    transition:0.3s;
+}
+
+.prev{
+    left:10px;
+}
+
+.next{
+    right:10px;
+}
+
+
+.fot{
+    width:95%;
+    max-width:390px;
+    margin:auto;
+    text-align:center;
+    padding:20px 10px;
+}
+
+.fot h2{
+    color:#6c63ff;
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.fot p{
+    color:#555;
+    font-size:16px;
+}
+
+.formik{
+    width:95%;
+    max-width:390px;
+    margin:20px auto;
+    background:white;
+    padding:22px;
+    border-radius:20px;
+    box-shadow:0 8px 18px rgba(0,0,0,0.08);
+    animation:show 0.5s ease;
+}
+
+.formik h2{
+    text-align:center;
+    color:#6c63ff;
+    margin-bottom:18px;
+    font-size:24px;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    margin:8px 0;
+    padding:14px;
+    border-radius:14px;
+    border:1px solid #ddd;
+    font-size:15px;
+    transition:0.3s;
+}
+
+
+
+button{
+    width:100%;
+    margin-top:12px;
+    padding:14px;
+    border:none;
+    border-radius:14px;
+    background:#6c63ff;
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+
+.requestik{
+    width:95%;
+    max-width:390px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    padding-bottom:20px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    padding:18px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+
+
+.card h3{
+    color:#6c63ff;
+    margin-bottom:10px;
+    font-size:20px;
+}
+
+.card p{
+    margin-bottom:8px;
+    font-size:15px;
+}
+
+textarea{
+    resize:none;
+    min-height:90px;
+}
+
+.error{
+    color:red;
+    text-align:center;
+    margin-top:10px;
+}
+
+
+
