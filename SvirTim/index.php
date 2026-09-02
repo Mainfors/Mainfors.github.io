@@ -67,7 +67,6 @@ session_start();
                         <td>
                             <span class="role-badge admin">Администратор</span> - управление заявками, редактирование статусов<br>
                             <span class="role-badge user">Пользователь</span> - создание и просмотр своих заявок<br>
-                            <span class="role-badge guest">Гость</span> - только просмотр
                         </td>
                     </tr>
                     <tr>
@@ -92,7 +91,7 @@ session_start();
         </section>
 
         <section class="quick-actions">
-            <h3> Быстрый старт</h3>
+            <h3> Бронь</h3>
             <div class="action-cards">
                 <?php if(!isset($_SESSION['user_id'])): ?>
                     <div class="card">
@@ -107,14 +106,7 @@ session_start();
                         <p>Перейдите в раздел бронирований</p>
                         <a href="bookings.php" class="btn btn-primary">Перейти к бронированию</a>
                     </div>
-                    <?php if($_SESSION['role'] === 'admin'): ?>
-                        <div class="card">
-                            <h4> Управление</h4>
-                            <p>Административная панель</p>
-                            <a href="admin.php" class="btn btn-warning">Перейти</a>
-                        </div>
                     <?php endif; ?>
-                <?php endif; ?>
             </div>
         </section>
 
