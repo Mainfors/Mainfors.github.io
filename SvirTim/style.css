@@ -13,7 +13,7 @@ body {
     background-image: url(og_og_153495648927449675.jpg);
 }
 
-.container {
+.bolshoyboxik {
     max-width: 1200px;
     margin: 0 auto;
     background: white;
@@ -81,21 +81,14 @@ h1 {
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
-
+    background: #666;
+    color: white;
     font-size: 0.95rem;
 }
 
-.btn-primary {
-    background: #666;
-    color: rgb(255, 255, 255);
-}
 
 
 
-.btn-outline {
-    
-    border: 2px solid ;
-}
 
 
 
@@ -133,7 +126,6 @@ h1 {
 .passport-table {
     width: 100%;
     margin: 20px 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .passport-table th {
@@ -157,32 +149,21 @@ h1 {
     margin: 5px 0;
 }
 
-.role-badge {
-    display: inline-block;
-    padding: 3px 12px;
-
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin: 2px 5px 2px 0;
-}
-
 
 .quick-actions {
-    margin: 40px 0 20px;
-    padding: 25px;
-    background: #f8fafc;
+    margin: 40px 20px;
+    padding: 30px;
 }
 
 .action-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    
     gap: 20px;
     margin-top: 20px;
 }
 
 .card {
     padding: 25px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    
     text-align: center;
 }
 
@@ -200,13 +181,6 @@ h1 {
     margin: 5px;
 }
 
-footer {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 2px solid #eef2f7;
-    text-align: center;
-    color: #666;
-}
 
 
 .form-group {

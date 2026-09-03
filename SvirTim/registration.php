@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="bolshoyboxik">
         <header>
             <h1> Регистрация</h1>
             <a href="index.php" class="btn btn-outline">На главную</a>

@@ -37,10 +37,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="bolshoyboxik">
         <header>
             <h1> Вход в систему</h1>
-            <a href="index.php" class="btn btn-outline">На главную</a>
+            <a href="index.php" class="btn">На главную</a>
         </header>
 
         <div class="auth-form">
@@ -59,8 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="password" id="password" name="password" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Войти</button>
-                <a href="registration.php" class="btn btn-outline">Нет аккаунта? Зарегистрироваться</a>
+                <button type="submit" class="btn btn">Войти</button>
+                <a href="registration.php" class="btn ">Нет аккаунта? Зарегистрироваться</a>
             </form>
         </div>
     </div>

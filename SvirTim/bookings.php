@@ -2,7 +2,7 @@
 session_start();
 require_once 'db.php';
 
-// Проверка авторизации
+
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit;
@@ -12,10 +12,10 @@ $user_id = $_SESSION['user_id'];
 $error = '';
 $success = '';
 
-// Получение списка кабинетов
+
 $cabinets = $pdo->query("SELECT * FROM cabinets")->fetchAll();
 
-// Получение текущих заявок пользователя
+
 $conn = $pdo->prepare("
     SELECT b.*, c.name as cabinet_name 
     FROM bookings b 
@@ -26,14 +26,14 @@ $conn = $pdo->prepare("
 $conn->execute([$user_id]);
 $bookings = $conn->fetchAll();
 
-// Обработка создания заявки
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'create') {
     $cabinet_id = $_POST['cabinet_id'];
     $booking_date = $_POST['booking_date'];
     $start_time = $_POST['start_time'];
     $end_time = $_POST['end_time'];
     
-    // Проверка занятости кабинета
+   
     $conn = $pdo->prepare("
         SELECT * FROM bookings 
         WHERE cabinet_id = ? AND booking_date = ? 
@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="bolshoyboxik">
         <header>
             <h1> Бронирования</h1>
             <div class="auth-buttons">
