@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система учёта книг</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Система учёта книг</h1>
+
+        <!-- Форма добавления -->
+        <section class="panel">
+            <h2>Добавить книгу</h2>
+            <form id="add-form" class="addform">
+                <div class="field">
+                    <label for="title">Название</label>
+                    <input type="text" id="title" placeholder="Название книги">
+                </div>
+                <div class="field">
+                    <label for="author">Автор</label>
+                    <input type="text" id="author" placeholder="Автор">
+                </div>
+                <div class="field">
+                    <label for="year">Год издания</label>
+                    <input type="number" id="year" placeholder="Год">
+                </div>
+                <button type="submit" class="btn primary">Добавить</button>
+            </form>
+            <p id="form-message" class="message"></p>
+        </section>
+
+        <!-- Поиск и фильтр -->
+        <section class="panel">
+            <h2>Поиск и фильтрация</h2>
+            <div class="searchrow">
+                <input type="text" id="search-input" placeholder="Поиск по названию">
+                <button id="search-btn" class="btn">Найти</button>
+                <button id="reset-search-btn" class="btn">Сбросить</button>
+            </div>
+            <div class="filterrow">
+                <button id="filter-available-btn" class="btn">Только в наличии</button>
+                <button id="show-all-btn" class="btn">Показать все</button>
+            </div>
+            <p id="search-message" class="message"></p>
+        </section>
+
+        
+        <section class="panel">
+            <h2>Статистика</h2>
+            <p>Всего книг: <strong id="total-count">0</strong></p>
+            <p>В наличии: <strong id="available-count">0</strong></p>
+        </section>
+
+       
+        <section class="panel">
+            <h2>Список книг</h2>
+            <div id="books-list"></div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

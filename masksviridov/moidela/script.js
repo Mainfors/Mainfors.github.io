@@ -1,7 +1,7 @@
 
 let tasks = [];
 
-
+// Получаем элементы страницы
 const taskInput = document.getElementById('taskInput');
 const addBtn = document.getElementById('addBtn');
 const findBtn = document.getElementById('findBtn');
@@ -12,9 +12,47 @@ const message = document.getElementById('message');
 
 function renderTasks() {
     taskList.innerHTML = '';
+    
     for (let i = 0; i < tasks.length; i++) {
         const li = document.createElement('li');
-        li.textContent = tasks[i];
+        li.textContent = tasks[i] + ' ';
+
+        
+        const editBtn = document.createElement('button');
+        editBtn.textContent = 'Изменить';
+        
+        
+        editBtn.addEventListener('click', function () {
+            // Запрашиваем новое название задачи
+            const newTask = prompt('Введите новое название задачи:', tasks[i]);
+
+         
+            if (newTask === null) {
+                return;
+            }
+
+            const trimmedNewTask = newTask.trim();
+
+            // Проверка на пустое значение
+            if (trimmedNewTask === '') {
+                message.textContent = 'Название задачи не может быть пустым!';
+                return;
+            }
+
+            if (trimmedNewTask !== tasks[i] && tasks.includes(trimmedNewTask)) {
+                message.textContent = 'Такая задача уже есть в списке!';
+                return;
+            }
+
+            
+            tasks[i] = trimmedNewTask;
+            
+            
+            message.textContent = 'Задача успешно изменена.';
+            renderTasks();
+        });
+
+        li.appendChild(editBtn);
         taskList.appendChild(li);
     }
 }
@@ -34,6 +72,7 @@ addBtn.addEventListener('click', function () {
         return;
     }
 
+    
     if (tasks.includes(task)) {
         message.textContent = 'Такая задача уже есть в списке!';
         return;
@@ -62,7 +101,7 @@ findBtn.addEventListener('click', function () {
     }
 });
 
-
+// Удаление задачи через splice()
 removeBtn.addEventListener('click', function () {
     const task = taskInput.value.trim();
 
