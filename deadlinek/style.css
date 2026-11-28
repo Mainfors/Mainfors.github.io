@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.topbar,
+.panel,
+.task-card {
+    background: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+}
+
+button {
+    padding: 9px 14px;
+    border: none;
+    border-radius: 4px;
+    background: #333;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #555;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.field {
+    margin-bottom: 12px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.form-actions,
+.task-actions,
+.filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.task-section {
+    margin-top: 20px;
+}
+
+.task-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.task-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.task-meta {
+    font-size: 14px;
+    color: #666;
+}
+
+.priority,
+.due {
+    margin-top: 5px;
+}
+
+.overdue {
+    color: red;
+}
+
+.soon {
+    color: orange;
+}
+
+.done {
+    color: green;
+}
+
+.search-wrap {
+    margin-bottom: 10px;
+}
+
+.filter {
+    background: #777;
+}
+
+.filter.active {
+    background: #222;
+}
+
+.empty-state {
+    padding: 15px;
+    text-align: center;
+    color: #777;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 25px;
+    color: #777;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .task-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

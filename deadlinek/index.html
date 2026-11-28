@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Планировщик дедлайнов — контроль учебных задач и сроков сдачи.">
+  <title>Планировщик дедлайнов</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <span>Планировщик дедлайнов</span>
+  
+      <span class="top-note">Учебные задачи под контролем</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">ЛИЧНЫЙ ПЛАНИРОВЩИК</p>
+        <h1>Все дедлайны — в одном месте</h1>
+        <p class="subtitle">Добавляйте задания, следите за сроками и отмечайте выполненную работу.</p>
+      </div>
+      <div class="summary" aria-live="polite">
+        <div><strong id="active-count">0</strong><span>активных</span></div>
+        <div><strong id="done-count">0</strong><span>выполнено</span></div>
+      </div>
+    </section>
+
+    <section class="panel form-panel">
+      <div class="section-heading">
+        <div><p class="eyebrow">НОВАЯ ЗАПИСЬ</p><h2 id="form-heading">Добавить задачу</h2></div>
+      </div>
+      <form id="task-form" novalidate>
+        <div class="form-grid">
+          <label class="field field-wide">Название задачи
+            <input id="title" name="title" type="text" maxlength="100" placeholder="Например, подготовить практическую работу" required>
+          </label>
+          <label class="field">Предмет
+            <input id="subject" name="subject" type="text" maxlength="60" placeholder="Например, Информатика" required>
+          </label>
+          <label class="field">Дата сдачи
+            <input id="due-date" name="dueDate" type="date" required>
+          </label>
+          <label class="field">Приоритет
+            <select id="priority" name="priority">
+              <option value="medium">Средний</option>
+              <option value="low">Низкий</option>
+              <option value="high">Высокий</option>
+            </select>
+          </label>
+        </div>
+        <p id="form-error" class="form-error" role="alert"></p>
+        <div class="form-actions">
+          <button class="button button-primary" type="submit" id="submit-button">Добавить задачу</button>
+          <button class="button button-quiet hidden" type="button" id="cancel-edit">Отмена</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="toolbar">
+      <div class="search-wrap">
+        <label class="sr-only" for="search">Поиск по названию</label>
+        <input id="search" type="search" placeholder="Поиск по названию задачи…">
+      </div>
+      <div class="filters" role="group" aria-label="Фильтр задач">
+        <button class="filter active" data-filter="all" type="button">Все</button>
+        <button class="filter" data-filter="active" type="button">Активные</button>
+        <button class="filter" data-filter="done" type="button">Сдано</button>
+      </div>
+    </section>
+
+    <div id="task-groups">
+      <section class="task-section" id="overdue-section"><div class="group-title"><h2>Просрочено</h2><span id="overdue-count" class="count">0</span></div><div id="overdue-list" class="task-list"></div></section>
+      <section class="task-section" id="week-section"><div class="group-title"><h2>На этой неделе</h2><span id="week-count" class="count">0</span></div><div id="week-list" class="task-list"></div></section>
+      <section class="task-section" id="later-section"><div class="group-title"><h2>Позже</h2><span id="later-count" class="count">0</span></div><div id="later-list" class="task-list"></div></section>
+      <section class="task-section" id="done-section"><div class="group-title"><h2>История выполнения</h2><span id="history-count" class="count">0</span></div><div id="done-list" class="task-list"></div></section>
+    </div>
+    <p id="empty-state" class="empty-state hidden">Задач пока нет. Добавьте первую задачу выше.</p>
+  </main>
+
+  <footer class="footer"><div class="container">Планировщик дедлайнов · Учебный проект УП.09</div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
